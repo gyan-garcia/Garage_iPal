@@ -6,11 +6,13 @@ import android.robot.motion.RobotMotion;
 public class EmotionExpression{
     private int emojiDuration = 5;
     private int actionDuration = 10;
+    private RobotMotion mRobotMotion;
     
-    public EmotionExpression() {
+    public EmotionExpression(RobotMotion rm ) {
+        this.mRobotMotion = rm;
     }
 
-    public void showEmoji(RobotMotion mRobotMotion, string emotion){
+    public void showEmoji(string emotion){
         int emoji = (int) RobotMotion.Emoji.SMILE;
         switch(emotion) {
             case "Contempt":
@@ -28,10 +30,10 @@ public class EmotionExpression{
             case "Surprise":
                 emoji = RobotMotion.Emoji.SURPRISE;
 
-        mRobotMotion.emoji(emoji,this.emojiDuration,0);
+        this.mRobotMotion.emoji(emoji,this.emojiDuration,0);
     }
 
-    public void doGesture(RobotMotion mRobotMotion, string emotion) {
+    public void doGesture(string emotion) {
         int action = (int) RobotMotion.Action.SMILE; 
         switch(emotion) {
             case "Contempt":
@@ -48,12 +50,12 @@ public class EmotionExpression{
                 action = (int) RobotMotion.Action.SAD;
             case "Surprise":
                 action = (int) RobotMotion.Action.SURPRISE;
-        mRobotMotion.doAction(action,0,this.actionDuration);
+        this.mRobotMotion.doAction(action,0,this.actionDuration);
     }
 
-    public void showEmotion(RobotMotion mRobotMotion, string emotion){
-        this.showEmoji(mRobotMotion, emotion);
-        this.doGesture(mRobotMotion, emotion);
+    public void showEmotion(string emotion){
+        this.showEmoji(emotion);
+        this.doGesture(emotion);
     }
 
 }
