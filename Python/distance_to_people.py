@@ -10,6 +10,8 @@ from skimage import data
 from skimage.filters import threshold_otsu
 from skimage import io
 
+# Just returns the closest green coordinate to the robot on the Y axis. This is the location of the human. 
+# TODO: Translate this pixels to CMS.
 
 def get_closest_activated_y_coodinate(image):    
     for y in range(image.shape[0] - 1, 0, -1):

@@ -2,13 +2,15 @@
 import numpy as np
 import cv2
 
+# THIS FILE FINDS PEOPLE ON A NORMAL IMAGE AND SETS GREEN RECTANGLE ON THE AREA.
+
+
 def inside(r, q):
     rx, ry, rw, rh = r
     qx, qy, qw, qh = q
     return rx > qx and ry > qy and rx + rw < qx + qw and ry + rh < qy + qh
 
-	        #cv2.rectangle(img, (x+pad_w, y+pad_h), (x+w-pad_w, y+h-pad_h), (0, 255, 0), thickness)
-		#CV_FILLED
+#cv2.rectangle(img, (x+pad_w, y+pad_h), (x+w-pad_w, y+h-pad_h), (0, 255, 0), thickness)
 	
 def draw_detections(img, rects, thickness = 1):
     for x, y, w, h in rects:

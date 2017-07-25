@@ -10,18 +10,14 @@ from skimage import data
 from skimage.filters import threshold_otsu
 from skimage import io
 
-# How to thresholding a grayscele image using scikit-image, this is good enough to remove all the noise.
-# http://scikit-image.org/docs/stable/auto_examples/segmentation/plot_thresholding.html#sphx-glr-auto-examples-segmentation-plot-thresholding-py
-# How do we remove everything else beside the board? We can not use a mask since the image
-# will be diferent at certain points.
-
-
-# IMAGE IS AN IMAGE ALREADY PREPROCESSED WITH OPENCV HOG Default peole detector, 
-# with all the detetions marked in a green box.
+# INPUT IMAGE IS AN IMAGE ALREADY PREPROCESSED WITH OPENCV HOG Default peoPle detector (people_detection.py file), 
+# with all the detections covered by a green box. After the mask is applied, anything left in green is actually and
+# object in the area.
 
 image = io.imread('C:\code\\hackathon\\pics\\test_res.jpg')
 mask = io.imread('C:\code\\hackathon\\pics\\mask2.jpg') #as_grey=True
 
+# Turns this into this 
 image = image / 255
 mask = mask / 255
                 
