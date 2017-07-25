@@ -3,7 +3,11 @@ package com.example.emo3;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.microsoft.projectoxford.emotion.EmotionServiceClient;
 import com.microsoft.projectoxford.emotion.EmotionServiceRestClient;
@@ -12,13 +16,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.Camera;
+import android.hardware.Camera.PictureCallback;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity {
@@ -26,15 +34,19 @@ public class MainActivity extends Activity {
 	ImageView img;
 	public EmotionServiceClient emotionServiceClient = new EmotionServiceRestClient("1492e36d5c0b4135bdd99282da703b7c");
 	
+	private Camera mCamera;
+    private CameraPreview mCameraPreview;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		mCamera = getCameraInstance();
+		 mCameraPreview = new CameraPreview(this, mCamera);
 		btncam = (Button) findViewById(R.id.btncam);
 		img = (ImageView) findViewById(R.id.img);
-		
-		
+		// FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+	    //    preview.addView(mCameraPreview);
 		
 		btncam.setOnClickListener(new OnClickListener() {
 
@@ -42,7 +54,8 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				//dispatchTakePictureIntent();
-				capturePhoto();
+				//capturePhoto();
+				 mCamera.takePicture(null, null, mPicture);
 			}
 			
 			
@@ -50,18 +63,67 @@ public class MainActivity extends Activity {
 		
 		
 	}
+	 PictureCallback mPicture = new PictureCallback() {
+	        @Override
+	        public void onPictureTaken(byte[] data, Camera camera) {
+	            File pictureFile = getOutputMediaFile();
+	            if (pictureFile == null) {
+	                return;
+	            }
+	            try {
+	                FileOutputStream fos = new FileOutputStream(pictureFile);
+	                fos.write(data);
+	                fos.close();
+	            } catch (FileNotFoundException e) {
+
+	            } catch (IOException e) {
+	            }
+	        }
+	    };
+
+	    private static File getOutputMediaFile() {
+	        File mediaStorageDir = new File(
+	                Environment
+	                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+	                "MyCameraApp");
+	        if (!mediaStorageDir.exists()) {
+	            if (!mediaStorageDir.mkdirs()) {
+	                Log.d("MyCameraApp", "failed to create directory");
+	                return null;
+	            }
+	        }
+	        // Create a media file name
+	        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+	                .format(new Date());
+	        File mediaFile;
+	        mediaFile = new File(mediaStorageDir.getPath() + File.separator
+	                + "IMG_" + timeStamp + ".jpg");
+
+	        return mediaFile;
+	    }
 	
-	public void useCogAPI()
-	{
-		Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cam);
-		ImageView imageView = (ImageView)findViewById(R.id.img);
-		imageView.setImageBitmap(mBitmap);
+	private Camera getCameraInstance() {
+		// TODO Auto-generated method stub
+		 Camera camera = null;
+	        try {
+	            camera = Camera.open();
+	        } catch (Exception e) {
+	            // cannot get camera or does not exist
+	        }
+	        return camera;
+	}
+
+	//public void useCogAPI()
+	//{
+	//	Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cam);
+		//ImageView imageView = (ImageView)findViewById(R.id.img);
+		//imageView.setImageBitmap(mBitmap);
 		
 		//Button btnProcess = (Button)findViewById(R.id.btnEmotion)
-		ByteArrayOutputStream outputstream = new ByteArrayOutputStream();
-		mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputstream);
+		//ByteArrayOutputStream outputstream = new ByteArrayOutputStream();
+	//	mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputstream);
 		//code from https://www.youtube.com/watch?v=AA0cgjECOSI
-		ByteArrayInputStream inputStream = new ByteArrayInputStream(outputstream.toByteArray());
+	//	ByteArrayInputStream inputStream = new ByteArrayInputStream(outputstream.toByteArray());
 //		ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
 //		btnProcess.setOnClickListener(new View.OnClickListener() {
 //				@Override
@@ -118,7 +180,7 @@ public class MainActivity extends Activity {
 //				}
 			
 	
-	}
+//	}
 	
 	static final int REQUEST_IMAGE_CAPTURE = 1;
 	static final int SELECT_PICTURE = 2;
@@ -177,7 +239,7 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		Bitmap bp = (Bitmap) data.getExtras().get("data");
-		img.setImageBitmap(bp);
+		//img.setImageBitmap(bp);
 		
 	}
 	
