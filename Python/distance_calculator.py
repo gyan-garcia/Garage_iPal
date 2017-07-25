@@ -22,12 +22,21 @@ def get_closest_activated_y_coodinate(image):
                 return y
 
 
-image = io.imread('C:\code\\hackathon\\pics\\people_on_area.jpg')
-io.imshow(image)
-
-closest_green_y = get_closest_activated_y_coodinate(image)
+def get_top_of_robot_area_y_coordinate(image):
+    for y in range(image.shape[0]):
+        for x in range(image.shape[1]):
+            if image[y][x][0] != 0 and image[y][x][1] != 255 and image[y][x][2] != 0:
+                return y
     
-io.imshow(image)
+
+
+
+#image = io.imread('C:\fcode\\hackathon\\pics\\people_on_area.jpg')
+#io.imshow(image)
+
+#closest_green_y = get_closest_activated_y_coodinate(image)
+    
+#io.imshow(image)
 
 
 #At this point we know how many pixels away are we from the target, we just
