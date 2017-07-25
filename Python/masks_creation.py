@@ -15,7 +15,7 @@ from skimage.filters import threshold_otsu
 
 
 from skimage import io
-image = io.imread('C:\code\\hackathon\\pics\\IMG_2017.07.24_11.36.03.jpg', as_grey=True)
+image = io.imread('C:\code\Garage_iPal\Pictures\Test\\IMG_2017.07.25_12.12.51.jpg', as_grey=True)
 
 thresh = threshold_otsu(image)
 binary = image > thresh
@@ -42,7 +42,7 @@ plt.show()
 #'true' if True else 'false'
 mask = binary * 255
 
-io.imsave('C:\code\\hackathon\\pics\\mask.jpg', mask)
+io.imsave('C:\code\Garage_iPal\Pictures\Test\\mask.jpg', mask)
 
 # One basic algorithm I think (it requires a lot of data though).
 # 1. The Robot knows all the time where it is located, so it knows how a picture taken from tha perspective
