@@ -22,12 +22,12 @@ def get_closest_activated_y_coodinate(image):
                 return y
 
 
-image = io.imread('C:\code\\hackathon\\pics\\people_on_area.jpg')
-io.imshow(image)
+#image = io.imread('C:\code\\hackathon\\pics\\people_on_area.jpg')
+#io.imshow(image)
 
-closest_green_y = get_closest_activated_y_coodinate(image)
+#closest_green_y = get_closest_activated_y_coodinate(image)
     
-io.imshow(image)
+#io.imshow(image)
 
 
 #At this point we know how many pixels away are we from the target, we just
