@@ -10,6 +10,7 @@ from skimage import data
 from skimage.filters import threshold_otsu
 from skimage import io
 
+
 # INPUT IMAGE IS AN IMAGE ALREADY PREPROCESSED WITH OPENCV HOG Default peoPle detector (people_detection.py file), 
 # with all the detections covered by a green box. After the mask is applied, anything left in green is actually and
 # object in the area.
