@@ -10,7 +10,6 @@ import sys
 
 sys.path.append("C:\code\Garage_iPal\Python")
 
-from people_detection import detect_humans_in_image
 from distance_calculator import get_distance_from_object
 
 mask = cv2.imread('C:\code\Garage_iPal\Pictures\Test\\mask.jpg') #as_grey=True
