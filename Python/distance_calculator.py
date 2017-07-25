@@ -21,7 +21,7 @@ def get_closest_activated_y_coodinate(image):
         for x in range(image.shape[1] - 1, 0, -1):
             if image[y][x][0] == 0 and image[y][x][1] == 255 and image[y][x][2] == 0:
                 return y
-
+    return -1 # Not found
 
 def get_top_of_robot_area_y_coordinate(image):
     for y in range(image.shape[0]):
@@ -60,6 +60,9 @@ def get_distance_from_object(img, mask):
     
     closest_y = get_closest_activated_y_coodinate(image_with_mask)
     
+    if closest_y == -1:
+        return -1 # This means that not object was detected on the area
+    
     # Let's add the 88 inches that the robot is not seeing.
     distance_inches = ((picture_height - closest_y) / pixels_to_inch) + 88
     
@@ -75,7 +78,6 @@ def get_distance_from_object(img, mask):
 #closest_green_y = get_closest_activated_y_coodinate(image)
     
 #io.imshow(image)
-
 
 #At this point we know how many pixels away are we from the target, we just
 # need to translate this to distance.
