@@ -10,7 +10,7 @@ def getEmotion(img):
 
     try:
         conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
-        conn.request("POST", "/emotion/v1.0/recognize?%s" % params, "{body}", headers)
+        conn.request("POST", "/emotion/v1.0/recognize?%s" % params, img, headers)
         response = conn.getresponse()
         data = response.read()
         print(data)
@@ -34,7 +34,7 @@ def getEmotion(img):
 
     try:
         conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
-        conn.request("POST", "/emotion/v1.0/recognize?%s" % params, "{body}", headers)
+        conn.request("POST", "/emotion/v1.0/recognize?%s" % params, img, headers)
         response = conn.getresponse()
         data = response.read()
         obj = json.loads(data)
