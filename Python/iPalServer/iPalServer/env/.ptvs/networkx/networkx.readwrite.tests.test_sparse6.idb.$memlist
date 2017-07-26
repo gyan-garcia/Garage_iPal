@@ -1,0 +1,17 @@
+type
+ImportError
+object
+tempfile
+sg6
+list
+range
+StringIO
+nx
+TestSparseGraph6
+min
+len
+sorted
+os
+assert_true
+raises
+assert_equal

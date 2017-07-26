@@ -1,0 +1,9 @@
+itertools
+scipy
+__all__
+_voronoi
+calc_circumcenters
+numpy
+project_to_sphere
+np
+SphericalVoronoi

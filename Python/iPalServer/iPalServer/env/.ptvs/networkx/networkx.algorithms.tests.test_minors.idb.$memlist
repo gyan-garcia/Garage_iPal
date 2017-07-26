@@ -1,0 +1,6 @@
+nx
+assert_equal
+TestContraction
+TestQuotient
+raises
+assert_true

@@ -1,0 +1,16 @@
+run_module_suite
+np
+mp
+division
+check_version
+lagrange_inversion
+mp_assert_allclose
+dec
+TestInversion
+absolute_import
+with_metaclass
+print_function
+DecoratorMeta
+sympy
+_is_32bit_platform
+MissingModule

@@ -1,0 +1,9 @@
+test_pade_trivial
+run_module_suite
+test_pade_4term_exp
+absolute_import
+division
+assert_array_almost_equal
+print_function
+assert_array_equal
+pade

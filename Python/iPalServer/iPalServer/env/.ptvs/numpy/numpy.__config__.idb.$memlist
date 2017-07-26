@@ -1,0 +1,7 @@
+get_info
+blas_opt_info
+blas_mkl_info
+lapack_mkl_info
+show
+__all__
+lapack_opt_info

@@ -1,0 +1,5 @@
+nx
+assert_equal
+object
+assert_almost_equal
+TestNeighborConnectivity

@@ -1,0 +1,9 @@
+list
+raises
+is_eulerian
+eulerian_circuit
+assert_true
+TestEuler
+assert_false
+assert_equal
+nx
