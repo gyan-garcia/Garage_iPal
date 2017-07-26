@@ -8,7 +8,7 @@ Created on Tue Jul 25 13:54:56 2017
 import socket
 #for exit
 import sys
- 
+import call_cortana_api
 # Symbolic name meaning all available interfaces
 HOST = ''
 # Arbitrary non-privileged port
@@ -37,11 +37,12 @@ while True:
     data = conn.recv(1024)
     message = data.decode("utf-8") 
     message = message.strip(' \t\n\r')
-
+    emotion = call_cortana_api(message)
     print ("Data: ", message)
     if not data or message=="quit":
         break
-    conn.sendall(data)
+    conn.sendall(emotion)
+    #conn.sendall(data)
  
 conn.close()
 s.close()
