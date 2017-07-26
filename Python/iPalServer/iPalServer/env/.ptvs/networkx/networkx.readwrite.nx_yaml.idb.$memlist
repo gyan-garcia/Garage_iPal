@@ -1,8 +1,0 @@
-__author__
-setup_module
-__all__
-open_file
-write_yaml
-teardown_module
-read_yaml
-nx

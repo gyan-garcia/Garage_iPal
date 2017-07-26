@@ -1,9 +1,0 @@
-os
-operator
-assert_nodes_equal
-tempfile
-assert_graphs_equal
-TestGpickle
-assert_edges_equal
-object
-nx

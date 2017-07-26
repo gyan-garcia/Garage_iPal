@@ -1,6 +1,0 @@
-assert_true
-raises
-test_stochastic
-test_stochastic_ints
-assert_equal
-nx

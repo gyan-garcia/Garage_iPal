@@ -1,8 +1,0 @@
-namedtuple
-__all__
-distributions
-np
-linregress
-LinregressResult
-theilslopes
-_find_repeats

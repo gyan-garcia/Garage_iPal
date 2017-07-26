@@ -1,8 +1,0 @@
-SkipTest
-TestPydot
-tempfile
-assert_graphs_equal
-assert_true
-os
-pydotplus
-nx

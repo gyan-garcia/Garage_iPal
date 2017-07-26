@@ -1,7 +1,0 @@
-test_first_harmonics
-absolute_import
-np
-division
-print_function
-assert_allclose
-sc

@@ -1,9 +1,0 @@
-test_max_clique_smoke
-assert_equals
-apxa
-len
-eq_
-test_clique_removal
-test_max_clique
-assert_equal
-nx

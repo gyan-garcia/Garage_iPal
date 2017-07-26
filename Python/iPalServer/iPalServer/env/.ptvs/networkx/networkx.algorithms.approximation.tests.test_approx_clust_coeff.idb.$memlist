@@ -1,8 +1,0 @@
-test_empty
-test_petersen
-test_tetrahedral
-test_dodecahedral
-average_clustering
-assert_equal
-nx
-test_complete

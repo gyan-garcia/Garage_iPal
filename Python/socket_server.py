@@ -35,8 +35,11 @@ print ('Connected with ' + addr[0] + ':' + str(addr[1]))
 # Now keep talking with the client
 while True:
     data = conn.recv(1024)
-    print ("Data: ", data)
-    if not data:
+    message = data.decode("utf-8") 
+    message = message.strip(' \t\n\r')
+
+    print ("Data: ", message)
+    if not data or message=="quit":
         break
     conn.sendall(data)
  

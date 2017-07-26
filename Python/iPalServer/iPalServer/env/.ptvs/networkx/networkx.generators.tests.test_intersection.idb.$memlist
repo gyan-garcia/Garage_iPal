@@ -1,6 +1,0 @@
-nx
-assert_equal
-ValueError
-len
-assert_raises
-TestIntersectionGraph

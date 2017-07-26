@@ -1,8 +1,0 @@
-deprecate
-absolute_import
-__doc__
-division
-print_function
-e
-_deprecated
-DeprecationWarning

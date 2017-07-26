@@ -1,9 +1,0 @@
-F
-TestCanny
-binary_erosion
-np
-binary_dilation
-img_as_float
-assert_equal
-data
-unittest

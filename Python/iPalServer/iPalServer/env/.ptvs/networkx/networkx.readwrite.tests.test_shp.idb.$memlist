@@ -1,7 +1,0 @@
-SkipTest
-os
-tempfile
-TestShp
-ogr
-assert_equal
-nx

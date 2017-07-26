@@ -1,8 +1,0 @@
-test_wrightomega_singular
-test_wrightomega_inf
-np
-test_wrightomega_inf_branch
-test_wrightomega_nan
-assert_
-assert_equal
-sc
