@@ -1,3 +1,5 @@
+package com.example.emo3;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -10,15 +12,15 @@ public class MotionPlanning{
     private double turnK;
 
     //For a 720 x 480 image
-    public MotionPlanning(int imageWidth int imageHeight) {
-        this.optimalX = (int) imageWidth/2.0;
-        this.optimalY = (int) imageHeight*(3/4.0);
+    public MotionPlanning(int imageWidth, int imageHeight) {
+        this.optimalX = (int) (imageWidth/2.0);
+        this.optimalY =  (int) (imageHeight*(3/4.0));
     }
 
-    public moveToPerson(RobotMotion mRobotMotion) {
+    public void moveToPerson(RobotMotion mRobotMotion) {
         //check if the robot can move
-        private walkToPoint(mRobotMotion);
-        private moveToPoint(mRobotMotion);
+        walkToPoint(mRobotMotion);
+        moveToPoint(mRobotMotion);
     }
     /** Given a pixel value in the Y direction, moves the robot 
     **/

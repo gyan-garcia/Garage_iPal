@@ -1,3 +1,4 @@
+package com.example.emo3;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
