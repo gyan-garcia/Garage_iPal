@@ -82,6 +82,5 @@ while True:
 #    conn.sendall(emotion)
 #    #conn.sendall(data)
  
-
 conn.close()
 s.close()
